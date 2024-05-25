@@ -20,5 +20,9 @@
     "nuxt-svgo": "^4.0.1",
     "vue": "^3.4.27",
     "vue-router": "^4.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Web-Artisan-Bros/tail-wab.git"
   }
 }
