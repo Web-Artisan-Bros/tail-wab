@@ -1,0 +1,24 @@
+{
+  "name": "tail-wab",
+  "description": "Tool that creates Tailwind config using Fluid Typography logic.",
+  "private": true,
+  "type": "module",
+  "author": "Web Artisan Bros",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@formkit/icons": "^1.6.3",
+    "@formkit/nuxt": "^1.6.3",
+    "@nuxtjs/tailwindcss": "^6.12.0",
+    "@wab-use/libs": "file:../wab-use/packages/libs",
+    "nuxt": "^3.11.2",
+    "nuxt-svgo": "^4.0.1",
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.2"
+  }
+}
