@@ -3,7 +3,7 @@
   "description": "Tool that creates Tailwind config using Fluid Typography logic.",
   "private": true,
   "type": "module",
-  "author": "Web Artisan Bros",
+  "author": "Leica Florian Robert",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
