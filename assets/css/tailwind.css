@@ -26,7 +26,7 @@
     }
 
     .formkit-outer {
-      @apply mb-3 text-sm;
+      @apply relative mb-3 text-sm;
     }
 
     .formkit-label {
@@ -44,6 +44,14 @@
     select.formkit-input {
       @apply px-2.5 py-1;
     }
+  }
+
+  .info-tooltip-button {
+    @apply inline-flex rounded-full text-zinc-500 transition-colors hover:text-accent-soft focus-visible:text-accent-soft focus-visible:outline-none;
+  }
+
+  .info-tooltip {
+    @apply absolute inset-x-0 bottom-full z-10 mb-1 rounded-lg border border-zinc-700 bg-zinc-800 px-3 py-2 text-xs font-normal leading-relaxed text-zinc-200 shadow-lg;
   }
 
   .section-title {
