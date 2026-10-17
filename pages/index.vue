@@ -14,33 +14,28 @@ useHead({
 </script>
 
 <template>
-  <section class="p-basic">
-    <div class="container mx-auto">
-      <h1 class="text-6xl text-black dark:text-white my-20">Fluid Fonts</h1>
+  <section class="container mx-auto px-basic py-12">
+    <PageIntro title="Fluid Fonts"
+               description="Fluid font sizes and line heights for every Tailwind text-* class, from your smallest to your largest viewport."/>
 
-      <FormKit type="form" id="fontSettingsForm"
-               :actions="false"
-               :value="initialSettingsFormData">
-        <FontSettingsForm></FontSettingsForm>
-      </FormKit>
+    <div class="mt-10 grid gap-8 lg:grid-cols-[320px_1fr] items-start">
+      <aside class="card lg:sticky lg:top-24">
+        <h2 class="card-title">Settings</h2>
+        <FormKit type="form" id="fontSettingsForm"
+                 :actions="false"
+                 :value="initialSettingsFormData">
+          <FontSettingsForm></FontSettingsForm>
+        </FormKit>
+      </aside>
 
-      <div class="mt-20 py-10">
-        <h2 class="text-5xl text-black dark:text-white mb-10">Font sizes</h2>
+      <div class="min-w-0 space-y-12">
+        <div>
+          <h2 class="section-title">Font sizes</h2>
+          <FontSizesTable></FontSizesTable>
+        </div>
 
-        <FontSizesTable></FontSizesTable>
+        <GeneratedCodeTabs :composable="fontSizes"></GeneratedCodeTabs>
       </div>
-
-      <GeneratedCodeTabs :composable="fontSizes"></GeneratedCodeTabs>
     </div>
   </section>
 </template>
-
-<style scoped>
-thead {
-  @apply sticky top-0
-}
-
-th {
-  @apply p-4;
-}
-</style>

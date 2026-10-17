@@ -42,12 +42,6 @@ useSeoMeta({
   <TheFooter></TheFooter>
 </template>
 
-<style>
-html {
-  color-scheme: dark;
-}
-</style>
-
 <style scoped>
 main {
   @apply min-h-screen;

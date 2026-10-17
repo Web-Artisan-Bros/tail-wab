@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border border-zinc-800 bg-zinc-900/60 p-6;
+  }
+
+  .card-title {
+    @apply mb-4 text-xs font-semibold uppercase tracking-wider text-zinc-400;
+  }
+
+  .section-title {
+    @apply mb-4 font-title text-2xl text-zinc-50;
+  }
+}
