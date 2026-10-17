@@ -1,6 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  runtimeConfig: {
+    public: {
+      // Absolute URLs for canonical and og:image; NUXT_PUBLIC_SITE_URL overrides it
+      siteUrl: 'https://tailwab.leicaflorianrobert.dev'
+    }
+  },
   modules: ['@nuxtjs/tailwindcss', '@formkit/nuxt', 'nuxt-svgo', '@nuxt/fonts'],
   tailwindcss: {
     exposeConfig: true,

@@ -88,7 +88,7 @@ libs/           pure functions: Tailwind scales, unit conversion (px/rem), decim
                 generated code (fontSizesCode.ts, spacesCode.ts)
 layouts/        default layout
 assets/         logos, icons and css/tailwind.css (shared component styles)
-public/         TailWab logo (tailwab-logo.svg) and favicons
+public/         TailWab logo (tailwab-logo.svg), favicons and og-image.png (social preview)
 tests/          unit tests; fixtures/expected/ pins the CSS and Tailwind v3 output
 ```
 

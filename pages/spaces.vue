@@ -8,8 +8,11 @@ const initialSettingsFormData = ref<SpaceSettingsFormData>({
 })
 const spaces = useSpaces()
 
-useHead({
-  title: 'Fluid Spaces - TailWab'
+useSeoMeta({
+  title: 'Fluid Spaces - TailWab',
+  ogTitle: 'Fluid Spaces - TailWab',
+  description: 'Fluid values for Tailwind\'s spacing scale, from your smallest to your largest viewport. Generates CSS variables and Tailwind v4 and v3 config.',
+  ogDescription: 'Fluid values for Tailwind\'s spacing scale, from your smallest to your largest viewport. Generates CSS variables and Tailwind v4 and v3 config.'
 })
 </script>
 

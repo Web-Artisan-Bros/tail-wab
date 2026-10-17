@@ -8,8 +8,11 @@ const initialSettingsFormData = ref<FontSettingsFormData>({
 })
 const fontSizes = useFontSizes()
 
-useHead({
+useSeoMeta({
   title: 'Fluid Fonts - TailWab',
+  ogTitle: 'Fluid Fonts - TailWab',
+  description: 'Fluid font sizes and line heights for every Tailwind text-* class, from your smallest to your largest viewport. Generates CSS variables and Tailwind v4 and v3 config.',
+  ogDescription: 'Fluid font sizes and line heights for every Tailwind text-* class, from your smallest to your largest viewport. Generates CSS variables and Tailwind v4 and v3 config.'
 })
 </script>
 

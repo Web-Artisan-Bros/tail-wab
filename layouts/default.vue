@@ -1,6 +1,14 @@
 <script lang="ts" setup>
+const { siteUrl } = useRuntimeConfig().public
+const route = useRoute()
+const pageUrl = computed(() => siteUrl + route.path)
+
 useHead({
   link: [
+    {
+      rel: 'canonical',
+      href: pageUrl
+    },
     {
       rel: 'icon',
       type: 'image/svg+xml',
@@ -31,8 +39,18 @@ useHead({
   }
 })
 
+// Defaults for every page; the pages set their own title and description
 useSeoMeta({
-  description: 'Tool that creates Tailwind config using Fluid Typography logic.',
+  description: 'Fluid typography and spacing for Tailwind CSS, with no media queries.',
+  ogSiteName: 'TailWab',
+  ogType: 'website',
+  ogUrl: pageUrl,
+  ogImage: `${siteUrl}/og-image.png`,
+  ogImageWidth: 1280,
+  ogImageHeight: 640,
+  ogImageAlt: 'TailWab: fluid typography and spacing for Tailwind CSS',
+  twitterCard: 'summary_large_image',
+  twitterImage: `${siteUrl}/og-image.png`
 })
 
 </script>
