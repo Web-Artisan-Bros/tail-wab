@@ -27,5 +27,5 @@ The entry point is `00 - Indice.md`. Do not create documentation in the repo (ap
 
 - **Stack**: Nuxt 3 + Vue 3 + TypeScript, Tailwind CSS (`@nuxtjs/tailwindcss`), FormKit (`@formkit/nuxt`, theme in `formkit.theme.ts`), `nuxt-svgo` for SVG icons. The fluid-size math comes from `@wab-use/libs` (`fluidSize`).
 - **Layout**: `pages/` (`index.vue` fluid fonts, `spaces.vue` fluid spaces), `components/` (settings forms, tables, generated-code tabs), `composables/` (`useFontSizes`, spaces state), `libs/` (pure calculation functions), `assets/` (logos and icons).
-- **Commands**: `npm run dev`, `npm run build`, `npm run generate` (static site), `npm run preview`. `npm install` also runs `nuxt prepare`.
+- **Commands**: `npm run dev`, `npm run build`, `npm run generate` (static site), `npm run preview`. `npm install` also runs `nuxt prepare`. After a merge, pull or checkout that changes `package-lock.json`, run `npm ci` before `npm run dev`: a stale `node_modules` makes Nuxt fail with a misleading `Cannot find module '<repo>/<package>'`.
 - **Node**: Node 20 is what is installed locally; there is no `.nvmrc` yet. Its npm (10.8) crashes with `edgesOut` when adding packages to this lockfile: use `npx npm@11 i <package>`.
