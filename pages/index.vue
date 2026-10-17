@@ -19,7 +19,7 @@ useHead({
                description="Fluid font sizes and line heights for every Tailwind text-* class, from your smallest to your largest viewport."/>
 
     <div class="mt-10 grid gap-8 lg:grid-cols-[320px_1fr] items-start">
-      <aside class="card lg:sticky lg:top-24">
+      <aside class="card settings-card lg:sticky lg:top-24">
         <h2 class="card-title">Settings</h2>
         <FormKit type="form" id="fontSettingsForm"
                  :actions="false"

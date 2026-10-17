@@ -17,6 +17,35 @@
     @apply mb-4 text-xs font-semibold uppercase tracking-wider text-zinc-400;
   }
 
+  /* Compact variant of .card for the settings sidebar: smaller text and tighter FormKit fields */
+  .settings-card {
+    @apply p-4;
+
+    .card-title {
+      @apply mb-3;
+    }
+
+    .formkit-outer {
+      @apply mb-3 text-sm;
+    }
+
+    .formkit-label {
+      @apply mb-0.5 text-xs;
+    }
+
+    .formkit-inner {
+      @apply px-2.5 py-1 text-sm;
+    }
+
+    .formkit-input {
+      @apply text-sm;
+    }
+
+    select.formkit-input {
+      @apply px-2.5 py-1;
+    }
+  }
+
   .section-title {
     @apply mb-4 font-title text-2xl text-zinc-50;
   }
