@@ -1,5 +1,7 @@
 # TailWab
 
+![TailWab: fluid typography and spacing for Tailwind CSS](.github/assets/og-image.png)
+
 Tool that creates Tailwind config using Fluid Typography logic.
 
 Inspired by [Fluid Typography](https://css-tricks.com/snippets/css/fluid-typography/) and [Utopia](https://utopia.fyi/),
@@ -86,7 +88,7 @@ libs/           pure functions: Tailwind scales, unit conversion (px/rem), decim
                 generated code (fontSizesCode.ts, spacesCode.ts)
 layouts/        default layout
 assets/         logos, icons and css/tailwind.css (shared component styles)
-public/         favicons
+public/         TailWab logo (tailwab-logo.svg) and favicons
 tests/          unit tests; fixtures/expected/ pins the CSS and Tailwind v3 output
 ```
 

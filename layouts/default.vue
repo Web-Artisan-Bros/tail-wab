@@ -3,6 +3,11 @@ useHead({
   link: [
     {
       rel: 'icon',
+      type: 'image/svg+xml',
+      href: "/tailwab-logo.svg"
+    },
+    {
+      rel: 'icon',
       sizes: '32x32',
       href: "/favicon-32x32.png"
     },

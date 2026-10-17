@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- TailWab: the clamp() curve. Fixed min, fluid ramp, fixed max; the dots are the two breakpoints. -->
+  <defs>
+    <linearGradient id="tailwab-fill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#18181b"/>
+  <rect x="1" y="1" width="126" height="126" rx="27" fill="none" stroke="#27272a" stroke-width="2"/>
+  <path d="M20 88H42L86 40H108V108H20Z" fill="url(#tailwab-fill)"/>
+  <path d="M20 88H42L86 40H108" fill="none" stroke="#fcd34d" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="42" cy="88" r="9" fill="#38bdf8" stroke="#18181b" stroke-width="4"/>
+  <circle cx="86" cy="40" r="9" fill="#38bdf8" stroke="#18181b" stroke-width="4"/>
+</svg>

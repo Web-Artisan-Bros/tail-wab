@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Josefin+Sans:wght@600;700&display=block" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1280px; height: 640px; }
+  body {
+    background:
+      radial-gradient(700px 420px at 8% 12%, rgba(56, 189, 248, 0.10), transparent 70%),
+      radial-gradient(800px 480px at 95% 95%, rgba(252, 211, 77, 0.09), transparent 70%),
+      #09090b;
+    color: #f4f4f5;
+    font-family: Inter, system-ui, sans-serif;
+    display: flex;
+    align-items: center;
+    padding: 0 72px;
+    gap: 48px;
+    overflow: hidden;
+  }
+  .left { flex: 1 1 0; }
+  .brand { display: flex; align-items: center; gap: 20px; margin-bottom: 30px; }
+  .brand img { width: 96px; height: 96px; }
+  .brand h1 {
+    font-family: "Josefin Sans", sans-serif; font-weight: 700;
+    font-size: 84px; letter-spacing: -0.01em; line-height: 1; padding-top: 12px;
+  }
+  .brand h1 span { color: #fcd34d; }
+  .tagline { font-size: 30px; line-height: 1.3; font-weight: 500; color: #e4e4e7; max-width: 540px; }
+  .tagline b { color: #fcd34d; font-weight: 600; }
+  .code {
+    margin-top: 34px; display: inline-block;
+    font-family: "JetBrains Mono", monospace; font-size: 15.5px; color: #a1a1aa; white-space: nowrap;
+    background: #18181b; border: 1px solid #27272a; border-radius: 10px;
+    padding: 12px 16px;
+  }
+  .code .p { color: #38bdf8; }
+  .code .f { color: #fcd34d; }
+  .code .n { color: #f4f4f5; }
+  .meta { margin-top: 22px; font-size: 17px; color: #71717a; }
+
+  .right {
+    flex: 0 0 500px;
+    background: rgba(24, 24, 27, 0.75); border: 1px solid #27272a; border-radius: 16px;
+    padding: 22px 26px 24px;
+  }
+  .head {
+    display: flex; justify-content: space-between;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #a1a1aa;
+    padding-bottom: 12px; border-bottom: 1px solid #27272a; margin-bottom: 8px;
+  }
+  .row { display: grid; grid-template-columns: 84px 1fr 118px; align-items: center; gap: 14px; padding: 9px 0; }
+  .row + .row { border-top: 1px solid #1f1f23; }
+  .cls { font-family: "JetBrains Mono", monospace; font-size: 15px; color: #f4f4f5; }
+  .track { position: relative; height: 10px; border-radius: 5px; background: #27272a; }
+  .min, .max { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 5px; }
+  .max { background: linear-gradient(90deg, rgba(252, 211, 77, 0.6), #fcd34d); }
+  .min { background: #38bdf8; }
+  .val { font-family: "JetBrains Mono", monospace; font-size: 14px; color: #a1a1aa; text-align: right; white-space: nowrap; }
+  .val b { color: #fcd34d; font-weight: 500; }
+  .foot { margin-top: 14px; font-size: 14px; color: #71717a; display: flex; gap: 18px; }
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 7px; vertical-align: -1px; }
+</style>
+</head>
+<body>
+  <div class="left">
+    <div class="brand">
+      <img src="../../public/tailwab-logo.svg" alt="" />
+      <h1>Tail<span>Wab</span></h1>
+    </div>
+    <p class="tagline"><b>Fluid typography</b> and <b>spacing</b> for Tailwind CSS, with no media queries.</p>
+    <div class="code"><span class="p">--text-base</span>: <span class="f">clamp</span>(<span class="n">1rem</span>, <span class="n">0.8957rem + 0.5217vi</span>, <span class="n">1.3rem</span>);</div>
+    <p class="meta">Tailwind v4 &amp; v3 · CSS variables · Inspired by Utopia</p>
+  </div>
+
+  <div class="right">
+    <div class="head"><span>Class</span><span>320px → 1240px</span></div>
+    <!-- scale factor 1.3, mobile first; bar width = px / 64 * 100% -->
+    <div class="row"><span class="cls">text-sm</span><div class="track"><div class="max" style="width:28.4%"></div><div class="min" style="width:21.9%"></div></div><span class="val">14 → <b>18.2</b></span></div>
+    <div class="row"><span class="cls">text-base</span><div class="track"><div class="max" style="width:32.5%"></div><div class="min" style="width:25%"></div></div><span class="val">16 → <b>20.8</b></span></div>
+    <div class="row"><span class="cls">text-xl</span><div class="track"><div class="max" style="width:40.6%"></div><div class="min" style="width:31.3%"></div></div><span class="val">20 → <b>26</b></span></div>
+    <div class="row"><span class="cls">text-2xl</span><div class="track"><div class="max" style="width:48.8%"></div><div class="min" style="width:37.5%"></div></div><span class="val">24 → <b>31.2</b></span></div>
+    <div class="row"><span class="cls">text-3xl</span><div class="track"><div class="max" style="width:60.9%"></div><div class="min" style="width:46.9%"></div></div><span class="val">30 → <b>39</b></span></div>
+    <div class="row"><span class="cls">text-4xl</span><div class="track"><div class="max" style="width:73.1%"></div><div class="min" style="width:56.3%"></div></div><span class="val">36 → <b>46.8</b></span></div>
+    <div class="row"><span class="cls">text-5xl</span><div class="track"><div class="max" style="width:97.5%"></div><div class="min" style="width:75%"></div></div><span class="val">48 → <b>62.4</b></span></div>
+    <div class="foot"><span><span class="dot" style="background:#38bdf8"></span>min (px)</span><span><span class="dot" style="background:#fcd34d"></span>max (px)</span></div>
+  </div>
+</body>
+</html>

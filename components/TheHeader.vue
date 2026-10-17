@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import TailwabLogo from '~/assets/tailwab_logo.png'
-
 const links = [
   { to: '/', label: 'Fluid Fonts' },
   { to: '/spaces', label: 'Fluid Spaces' }
@@ -11,7 +9,7 @@ const links = [
   <header class="sticky top-0 z-30 bg-zinc-950/80 backdrop-blur border-b border-zinc-800">
     <nav class="container mx-auto px-basic h-16 flex items-center justify-between gap-4">
       <nuxt-link to="/" class="flex items-center gap-2 shrink-0" aria-label="Go to homepage">
-        <img :src="TailwabLogo" alt="" class="h-8 w-8">
+        <img src="/tailwab-logo.svg" alt="" class="h-8 w-8">
         <span class="font-title text-xl text-zinc-100 hidden sm:inline">TailWab</span>
       </nuxt-link>
 
