@@ -47,7 +47,7 @@ export function fontSizesCss (rows: FontSizeRows, comments: boolean): string[] {
 }
 
 export function fontSizesTailwind (rows: FontSizeRows, version: TailwindVersion, comments: boolean): string[] {
-  if (version !== 'v3') throw new Error(`Unsupported Tailwind version: ${version}`)
+  if (version === 'v4') return fontSizesTheme(rows, comments)
 
   const toReturn = Object.keys(rows).reduce((acc, key) => {
     const values = rows[key]
@@ -69,6 +69,29 @@ export function fontSizesTailwind (rows: FontSizeRows, version: TailwindVersion,
   toReturn.push(`    }
   }
 }`)
+
+  return toReturn
+}
+
+/** Tailwind v4 `@theme` block: `--text-<name>` and `--text-<name>--line-height` for each class */
+function fontSizesTheme (rows: FontSizeRows, comments: boolean): string[] {
+  const toReturn = Object.keys(rows).reduce((acc, key) => {
+    const values = rows[key]
+    const name = key.replace('text-', '')
+
+    if (comments) {
+      const { fontMinSize, fontMaxSize, lineMinSize, lineMaxSize } = ranges(values)
+
+      acc.push(`  /* ${name}: ${fontMinSize}px → ${fontMaxSize}px | lh: ${lineMinSize}em → ${lineMaxSize}em */`)
+    }
+
+    acc.push(`  --text-${name}: ${values.resultFontSize};`)
+    acc.push(`  --text-${name}--line-height: ${values.resultLineHeight};`)
+    acc.push('')
+    return acc
+  }, ['@theme {'] as string[])
+
+  toReturn.push('}')
 
   return toReturn
 }

@@ -41,3 +41,34 @@ describe('spacesTailwind v3', () => {
     expect(spacesTailwind(rows, 'v3', true).join('\n')).toBe(expected('spaces-Tailwind-comments.txt'))
   })
 })
+
+describe('spacesTailwind v4', () => {
+  const v4Rows: SpaceRows = {
+    '10': { minSize: 40, maxSize: 52, resultSize: 'clamp(2.5rem, 2.3500rem + 0.7500vi, 3.25rem)' },
+    '1.5': { minSize: 6, maxSize: 7.8, resultSize: 'clamp(0.375rem, 0.3525rem + 0.1125vi, 0.4875rem)' },
+    '0': { minSize: 0, maxSize: 0, resultSize: '0rem' },
+    '0.5': { minSize: 2.6, maxSize: 2, resultSize: 'clamp(0.125rem, 0.1175rem + 0.0375vi, 0.1625rem)' }
+  }
+
+  test('writes an @theme block with one spacing variable per key, in numeric order', () => {
+    expect(spacesTailwind(v4Rows, 'v4', false)).toEqual([
+      '@theme {',
+      '  --spacing-0: 0rem;',
+      '  --spacing-0_5: clamp(0.125rem, 0.1175rem + 0.0375vi, 0.1625rem);',
+      '  --spacing-1_5: clamp(0.375rem, 0.3525rem + 0.1125vi, 0.4875rem);',
+      '  --spacing-10: clamp(2.5rem, 2.3500rem + 0.7500vi, 3.25rem);',
+      '}'
+    ])
+  })
+
+  test('adds a range comment before each key, with min and max in order', () => {
+    const lines = spacesTailwind(v4Rows, 'v4', true)
+
+    expect(lines).toContain('  /* 0.5: 2px → 2.6px */')
+    expect(lines.indexOf('  /* 0.5: 2px → 2.6px */') + 1).toBe(lines.indexOf('  --spacing-0_5: clamp(0.125rem, 0.1175rem + 0.0375vi, 0.1625rem);'))
+  })
+
+  test('never writes a dot in a variable name', () => {
+    expect(spacesTailwind(rows, 'v4', false).filter(line => /--spacing-[^:]*\./.test(line))).toEqual([])
+  })
+})

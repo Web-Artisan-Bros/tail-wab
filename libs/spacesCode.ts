@@ -41,7 +41,7 @@ export function spacesCss (rows: SpaceRows, comments: boolean): string[] {
 }
 
 export function spacesTailwind (rows: SpaceRows, version: TailwindVersion, comments: boolean): string[] {
-  if (version !== 'v3') throw new Error(`Unsupported Tailwind version: ${version}`)
+  if (version === 'v4') return spacesTheme(rows, comments)
 
   const toReturn = sortedKeys(rows).reduce((acc, key) => {
     const values = rows[key]
@@ -62,6 +62,29 @@ export function spacesTailwind (rows: SpaceRows, version: TailwindVersion, comme
   toReturn.push(`    }
   }
 }`)
+
+  return toReturn
+}
+
+/**
+ * Tailwind v4 `@theme` block: `--spacing-<key>` for each key.
+ * Dots become underscores (`--spacing-1_5`), which Tailwind v4 maps back to `p-1.5`.
+ */
+function spacesTheme (rows: SpaceRows, comments: boolean): string[] {
+  const toReturn = sortedKeys(rows).reduce((acc, key) => {
+    const values = rows[key]
+
+    if (comments) {
+      const { minSize, maxSize } = ranges(values)
+
+      acc.push(`  /* ${key}: ${minSize}px → ${maxSize}px */`)
+    }
+
+    acc.push(`  --spacing-${key.replace('.', '_')}: ${values.resultSize};`)
+    return acc
+  }, ['@theme {'] as string[])
+
+  toReturn.push('}')
 
   return toReturn
 }
