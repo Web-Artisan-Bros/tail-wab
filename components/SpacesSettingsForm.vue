@@ -11,7 +11,7 @@
         label="Min Width"
         step="1"
     >
-      <template #suffix><span class="pr-3">px</span></template>
+      <template #suffix><span class="pl-2 text-zinc-400">px</span></template>
     </FormKit>
 
     <FormKit
@@ -21,7 +21,7 @@
         label="Max Width"
         step="1"
     >
-      <template #suffix><span class="pr-3">px</span></template>
+      <template #suffix><span class="pl-2 text-zinc-400">px</span></template>
     </FormKit>
 
     <FormKit
