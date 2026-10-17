@@ -1,0 +1,106 @@
+{
+  "text-xs": {
+    "fontMinSize": 12,
+    "lineMinSize": 1,
+    "fontMaxSize": 15.6,
+    "lineMaxSize": 1,
+    "resultFontSize": "clamp(0.75rem, 0.6717rem + 0.3913vi, 0.975rem)",
+    "resultLineHeight": "1em"
+  },
+  "text-sm": {
+    "fontMinSize": 14,
+    "lineMinSize": 1.25,
+    "fontMaxSize": 18.2,
+    "lineMaxSize": 1.25,
+    "resultFontSize": "clamp(0.875rem, 0.7837rem + 0.4565vi, 1.1375rem)",
+    "resultLineHeight": "1.25em"
+  },
+  "text-base": {
+    "fontMinSize": 16,
+    "lineMinSize": 1.5,
+    "fontMaxSize": 20.8,
+    "lineMaxSize": 1.5,
+    "resultFontSize": "clamp(1rem, 0.8957rem + 0.5217vi, 1.3rem)",
+    "resultLineHeight": "1.5em"
+  },
+  "text-lg": {
+    "fontMinSize": 18,
+    "lineMinSize": 1.75,
+    "fontMaxSize": 23.4,
+    "lineMaxSize": 1.75,
+    "resultFontSize": "clamp(1.125rem, 1.0076rem + 0.5870vi, 1.4625rem)",
+    "resultLineHeight": "1.75em"
+  },
+  "text-xl": {
+    "fontMinSize": 20,
+    "lineMinSize": 1.75,
+    "fontMaxSize": 26,
+    "lineMaxSize": 1.75,
+    "resultFontSize": "clamp(1.25rem, 1.1196rem + 0.6522vi, 1.625rem)",
+    "resultLineHeight": "1.75em"
+  },
+  "text-2xl": {
+    "fontMinSize": 24,
+    "lineMinSize": 2,
+    "fontMaxSize": 31.2,
+    "lineMaxSize": 2,
+    "resultFontSize": "clamp(1.5rem, 1.3435rem + 0.7826vi, 1.95rem)",
+    "resultLineHeight": "2em"
+  },
+  "text-3xl": {
+    "fontMinSize": 30,
+    "lineMinSize": 2.25,
+    "fontMaxSize": 39,
+    "lineMaxSize": 2.25,
+    "resultFontSize": "clamp(1.875rem, 1.6793rem + 0.9783vi, 2.4375rem)",
+    "resultLineHeight": "2.25em"
+  },
+  "text-4xl": {
+    "fontMinSize": 36,
+    "lineMinSize": 2.5,
+    "fontMaxSize": 46.8,
+    "lineMaxSize": 2.5,
+    "resultFontSize": "clamp(2.25rem, 2.0152rem + 1.1739vi, 2.925rem)",
+    "resultLineHeight": "2.5em"
+  },
+  "text-5xl": {
+    "fontMinSize": 48,
+    "lineMinSize": 1,
+    "fontMaxSize": 62.4,
+    "lineMaxSize": 1,
+    "resultFontSize": "clamp(3rem, 2.6870rem + 1.5652vi, 3.9rem)",
+    "resultLineHeight": "1em"
+  },
+  "text-6xl": {
+    "fontMinSize": 60,
+    "lineMinSize": 1,
+    "fontMaxSize": 78,
+    "lineMaxSize": 1,
+    "resultFontSize": "clamp(3.75rem, 3.3587rem + 1.9565vi, 4.875rem)",
+    "resultLineHeight": "1em"
+  },
+  "text-7xl": {
+    "fontMinSize": 72,
+    "lineMinSize": 1,
+    "fontMaxSize": 93.6,
+    "lineMaxSize": 1,
+    "resultFontSize": "clamp(4.5rem, 4.0304rem + 2.3478vi, 5.85rem)",
+    "resultLineHeight": "1em"
+  },
+  "text-8xl": {
+    "fontMinSize": 96,
+    "lineMinSize": 1,
+    "fontMaxSize": 124.8,
+    "lineMaxSize": 1,
+    "resultFontSize": "clamp(6rem, 5.3739rem + 3.1304vi, 7.8rem)",
+    "resultLineHeight": "1em"
+  },
+  "text-9xl": {
+    "fontMinSize": 128,
+    "lineMinSize": 1,
+    "fontMaxSize": 166.4,
+    "lineMaxSize": 1,
+    "resultFontSize": "clamp(8rem, 7.1652rem + 4.1739vi, 10.4rem)",
+    "resultLineHeight": "1em"
+  }
+}

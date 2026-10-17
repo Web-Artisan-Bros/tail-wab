@@ -1,8 +1,9 @@
-import { limitDecimals } from '~/libs/limitDecimals'
+import { fontSizesCss, fontSizesTailwind, type FontSizeRows } from '~/libs/fontSizesCode'
 
 export function useFontSizes () {
   const entriesForm = useFormKitContextById('fontSizesEntriesForm')
   const twIncludeComments = ref(false)
+  const tailwindVersion = useTailwindVersion()
   const cssIncludeComments = ref(false)
   
   const groupedByNameRes = computed(() => {
@@ -34,64 +35,14 @@ export function useFontSizes () {
     }>)
   })
   
-  const cssResult = computed(() => {
-    const toReturn = Object.keys(groupedByNameRes.value).reduce((acc, key) => {
-      // @ts-ignore
-      const values = groupedByNameRes.value[key]
-      
-      acc.push(`   --wabtu-${key}: ${values['resultFontSize']};`)
-      acc.push(`   --wabtu-${key}-lh: ${values['resultLineHeight']};`)
-      
-      if (cssIncludeComments.value) {
-        const fontMinSize = (limitDecimals(values.fontMinSize < values.fontMaxSize ? values.fontMinSize : values.fontMaxSize, 4))
-        const fontMaxSize = (limitDecimals(values.fontMinSize > values.fontMaxSize ? values.fontMinSize : values.fontMaxSize, 4))
-        const lineMinSize = (limitDecimals(values.lineMinSize < values.lineMaxSize ? values.lineMinSize : values.lineMaxSize, 4))
-        const lineMaxSize = (limitDecimals(values.lineMinSize > values.lineMaxSize ? values.lineMinSize : values.lineMaxSize, 4))
-        
-        acc.splice(-2, 0, `   /* ${key}: ${fontMinSize}px → ${fontMaxSize}px */`)
-        acc.splice(-1, 0, `   /* ${key}-lh: ${lineMinSize}em → ${lineMaxSize}em */`)
-      }
-      
-      acc.push('')
-      return acc
-    }, [':root {'] as string[])
-    
-    toReturn.push('}')
-    
-    return toReturn
-  })
-  
-  const twResult = computed(() => {
-    const toReturn = Object.keys(groupedByNameRes.value).reduce((acc, key) => {
-      // @ts-ignore
-      const values = groupedByNameRes.value[key]
-      const name = key.replace('text-', '')
-      
-      acc.push(`      "${name}": ["${values['resultFontSize']}", "${values['resultLineHeight']}"],`)
-      
-      if (twIncludeComments.value) {
-        const fontMinSize = (limitDecimals(values.fontMinSize < values.fontMaxSize ? values.fontMinSize : values.fontMaxSize, 4))
-        const fontMaxSize = (limitDecimals(values.fontMinSize > values.fontMaxSize ? values.fontMinSize : values.fontMaxSize, 4))
-        const lineMinSize = (limitDecimals(values.lineMinSize < values.lineMaxSize ? values.lineMinSize : values.lineMaxSize, 4))
-        const lineMaxSize = (limitDecimals(values.lineMinSize > values.lineMaxSize ? values.lineMinSize : values.lineMaxSize, 4))
-        
-        acc.splice(-1, 0, `      // ${name}: ${fontMinSize}px → ${fontMaxSize}px | lh: ${lineMinSize}em → ${lineMaxSize}em`)
-      }
-      
-      // acc.push('')
-      return acc
-    }, [`module.exports = {
-  theme: {
-    fontSize: {`] as string[])
-    
-    toReturn.push(`    }
-  }
-}`)
-    
-    return toReturn
-  })
-  
+  const rows = computed(() => (groupedByNameRes.value || {}) as FontSizeRows)
+
+  const cssResult = computed(() => fontSizesCss(rows.value, cssIncludeComments.value))
+
+  const twResult = computed(() => fontSizesTailwind(rows.value, tailwindVersion.value, twIncludeComments.value))
+
   return {
+    tailwindVersion,
     twIncludeComments,
     cssIncludeComments,
     groupedByNameRes,

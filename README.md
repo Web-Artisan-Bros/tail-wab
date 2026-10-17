@@ -30,7 +30,11 @@ How to use it:
 3. If needed, adjust the minimum and maximum of each row in the table by hand.
 4. Copy the result from **Generated Code**:
    - **CSS**: custom properties in `:root` (`--wabtu-text-base`, `--wabtu-text-base-lh`, …);
-   - **Tailwind**: a `tailwind.config.js` snippet that overrides `theme.fontSize` or `theme.spacing`.
+   - **Tailwind**, in the version you pick (the choice is remembered in the browser):
+     - **v4** (default): an `@theme` block to paste after `@import "tailwindcss";`. It adds fluid
+       `--text-*` / `--text-*--line-height` and `--spacing-*` variables (`--spacing-1_5` is used by `p-1.5`);
+       spacing keys that are not in the table keep Tailwind's default multiplier;
+     - **v3**: a `tailwind.config.js` snippet that overrides `theme.fontSize` or `theme.spacing`.
 
    **Include Comments** adds the min → max range of each value as a comment.
 
@@ -57,6 +61,7 @@ npm install
 | `npm run build`    | Builds the app for production (`.output/`)          |
 | `npm run generate` | Generates the static site (`.output/public/`)       |
 | `npm run preview`  | Serves the production build locally                 |
+| `npm test`         | Runs the unit tests (Vitest)                        |
 
 ### Stack
 
@@ -67,6 +72,7 @@ npm install
 - `nuxt-svgo` for the SVG icons
 - [`@nuxt/fonts`](https://fonts.nuxt.com/) to self-host Inter, Josefin Sans and JetBrains Mono
 - [Shiki](https://shiki.style/) to highlight the generated code
+- [Vitest](https://vitest.dev/) for the unit tests
 - [`@wab-use/libs`](https://www.npmjs.com/package/@wab-use/libs) for the `clamp()` calculation (`fluidSize`)
 
 ### Project structure
@@ -74,12 +80,14 @@ npm install
 ```
 pages/          index.vue (Fluid Fonts), spaces.vue (Fluid Spaces)
 components/     settings forms, size tables and rows, generated code (tabs, code block, switch), header and footer
-composables/    useFontSizes, useSpaces: collect the table values and build the CSS and Tailwind output;
-                useHighlighter: shared Shiki instance
-libs/           pure functions: Tailwind scales, unit conversion (px/rem), decimal rounding
+composables/    useFontSizes, useSpaces: collect the table values and pass them to the generators in libs/;
+                useTailwindVersion: chosen Tailwind version; useHighlighter: shared Shiki instance
+libs/           pure functions: Tailwind scales, unit conversion (px/rem), decimal rounding,
+                generated code (fontSizesCode.ts, spacesCode.ts)
 layouts/        default layout
 assets/         logos, icons and css/tailwind.css (shared component styles)
 public/         favicons
+tests/          unit tests; fixtures/expected/ pins the CSS and Tailwind v3 output
 ```
 
 ---
