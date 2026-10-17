@@ -24,5 +24,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Web-Artisan-Bros/tail-wab.git"
+  },
+  "devDependencies": {
+    "@nuxt/fonts": "^0.7.2"
   }
 }

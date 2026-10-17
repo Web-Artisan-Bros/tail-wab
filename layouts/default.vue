@@ -1,22 +1,6 @@
 <script lang="ts" setup>
-onNuxtReady(() => {
-  document.documentElement.classList.add('dark')
-})
-
 useHead({
   link: [
-    {
-      rel: 'preconnect',
-      href: 'https://fonts.googleapis.com'
-    },
-    {
-      rel: 'preconnect',
-      href: 'https://fonts.gstatic.com'
-    },
-    {
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'
-    },
     {
       rel: 'icon',
       sizes: '32x32',
@@ -34,7 +18,11 @@ useHead({
   ],
   title: 'TailWab',
   htmlAttrs: {
-    lang: 'it'
+    lang: 'en',
+    class: 'dark'
+  },
+  bodyAttrs: {
+    class: 'bg-zinc-950 text-zinc-100 font-sans antialiased'
   }
 })
 
@@ -45,14 +33,20 @@ useSeoMeta({
 </script>
 
 <template>
-  <TheHeader ></TheHeader>
+  <TheHeader></TheHeader>
 
-  <main class="dark:bg-slate-800 dark:text-white">
+  <main>
     <slot></slot>
   </main>
 
   <TheFooter></TheFooter>
 </template>
+
+<style>
+html {
+  color-scheme: dark;
+}
+</style>
 
 <style scoped>
 main {
