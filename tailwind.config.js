@@ -1,3 +1,5 @@
+import colors from 'tailwindcss/colors'
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -5,8 +7,7 @@ export default {
     './error.vue',
     './formkit.theme.ts'
   ],
-  darkMode: 'media',
-  // darkMode: ['selector', '[data-mode="dark"]'],
+  darkMode: 'class',
   theme: {
     fontSize: {
       // xs: 12px → 15.6px | lh: 1em → 1em
@@ -107,9 +108,16 @@ export default {
       "96": "clamp(24rem, 22.5600rem + 7.2000vi, 31.2rem)",
     },
     extend: {
+      colors: {
+        accent: {
+          DEFAULT: colors.amber[300],
+          soft: colors.yellow[200]
+        }
+      },
       fontFamily: {
-        sans: ["Montserrat", "sans-serif"],
+        sans: ["Inter", "sans-serif"],
         title: ["Josefin Sans", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"],
       },
       spacing: {
         basic: '1.5rem'

@@ -43,21 +43,18 @@ const settings = computed(() => spacesSettingsForm.value?.value)
 
 <template>
   <FormKit type="form" id="spacesEntriesForm" :actions="false">
-    <div class="overflow-auto">
-      <table class="table-fixed w-full min-w-[1024px]" v-if="settings">
+    <div class="size-table-wrapper">
+      <table class="size-table min-w-[480px]" v-if="settings">
         <thead>
-        <tr class="table-row font-bold border-b text-lg">
-          <th class="text-center">Name</th>
-          <th>Min Size
-            <div class="font-normal italic text-blue-400" v-if="settings.mobileFirst === 'true'">
-              Default Tailwind values
-            </div>
+        <tr>
+          <th class="name-cell">Name</th>
+          <th :class="{'default-cell': settings.mobileFirst === 'true' }">
+            Min size
+            <span class="badge" v-if="settings.mobileFirst === 'true'">Tailwind default</span>
           </th>
-          <th>Max Size
-            <div class="font-normal italic text-blue-400"
-                 v-if="settings.mobileFirst === 'false'">
-              Default Tailwind values
-            </div>
+          <th :class="{'default-cell': settings.mobileFirst === 'false' }">
+            Max size
+            <span class="badge" v-if="settings.mobileFirst === 'false'">Tailwind default</span>
           </th>
         </tr>
         </thead>
@@ -70,7 +67,3 @@ const settings = computed(() => spacesSettingsForm.value?.value)
     </div>
   </FormKit>
 </template>
-
-<style scoped lang="scss">
-
-</style>

@@ -8,25 +8,27 @@ const active = ref(0)
 <template>
   <div>
     <!-- header -->
-    <div class="flex ">
-      <div v-for="(tab, i) in tabs" :key="i"
-           class="p-4 cursor-pointer rounded-t-xl border-zinc-500 min-w-24 text-center"
-           :class="{'bg-zinc-900 border-x border-t': active === i}"
-           @click="active = i">
-        {{ tab }}
+    <div class="mb-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="segmented" role="tablist">
+        <button v-for="(tab, i) in tabs" :key="i"
+                type="button"
+                role="tab"
+                :aria-selected="active === i"
+                class="segmented-item"
+                :class="{ 'is-active': active === i }"
+                @click="active = i">
+          {{ tab }}
+        </button>
       </div>
+
+      <slot name="actions" :active="active"></slot>
     </div>
 
     <!-- content -->
     <div v-for="(tab, i) in tabs" :key="i"
          v-show="active === i"
-         class="px-4 py-8 bg-zinc-900 border -mt-[1px] rounded-b-xl rounded-tr-xl border-zinc-500 overflow-hidden"
-         :class="{'rounded-tl-xl': i > 0}">
+         role="tabpanel">
       <slot :name="tab.toLowerCase().replaceAll(' ', '_')"></slot>
     </div>
   </div>
 </template>
-
-<style scoped lang="scss">
-
-</style>

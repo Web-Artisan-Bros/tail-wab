@@ -62,18 +62,22 @@ npm install
 
 - [Nuxt 3](https://nuxt.com/) + Vue 3 + TypeScript
 - [Tailwind CSS](https://tailwindcss.com/) via `@nuxtjs/tailwindcss` (the Tailwind config viewer is enabled in dev)
-- [FormKit](https://formkit.com/) for the forms (theme in `formkit.theme.ts`)
+- [FormKit](https://formkit.com/) for the forms (theme in `formkit.theme.ts`, generated with
+  `npx formkit theme --theme=regenesis --variables "accentColor=amber,colorTemperature=zinc,radius=rounded-lg"`)
 - `nuxt-svgo` for the SVG icons
+- [`@nuxt/fonts`](https://fonts.nuxt.com/) to self-host Inter, Josefin Sans and JetBrains Mono
+- [Shiki](https://shiki.style/) to highlight the generated code
 - [`@wab-use/libs`](https://www.npmjs.com/package/@wab-use/libs) for the `clamp()` calculation (`fluidSize`)
 
 ### Project structure
 
 ```
 pages/          index.vue (Fluid Fonts), spaces.vue (Fluid Spaces)
-components/     settings forms, size tables and rows, generated code tabs, header and footer
-composables/    useFontSizes, useSpaces: collect the table values and build the CSS and Tailwind output
+components/     settings forms, size tables and rows, generated code (tabs, code block, switch), header and footer
+composables/    useFontSizes, useSpaces: collect the table values and build the CSS and Tailwind output;
+                useHighlighter: shared Shiki instance
 libs/           pure functions: Tailwind scales, unit conversion (px/rem), decimal rounding
 layouts/        default layout
-assets/         logos and icons
+assets/         logos, icons and css/tailwind.css (shared component styles)
 public/         favicons
 ```

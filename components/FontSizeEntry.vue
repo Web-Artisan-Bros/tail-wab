@@ -40,47 +40,54 @@ const resultLineHeight = computed(() => values.value.lineMinSize < 1 ? 1 : fluid
 </script>
 
 <template>
-  <tr class="table-row group">
-    <td class="font-bold text-xl border-r border-r-zinc-500">{{ name }}</td>
-    <td :class="{'bg-blue-900' : mobileFirst }">
+  <tr class="group hover:bg-zinc-800/40">
+    <td class="name-cell">{{ name }}</td>
+    <td :class="{'default-cell': mobileFirst }">
       <FormKit type="number"
                v-model="values.fontMinSize"
                step="0.01"
                :name="name + '[fontMinSize]'"
                number="float"
-               :outer-class="{'mb-4':false}">
-        <template #suffix><span class="-ml-1 pr-3">px</span></template>
+               outer-class="!mb-0"
+               inner-class="!max-w-none"
+               input-class="font-mono !text-sm !py-1">
+        <template #suffix><span class="pr-3 text-xs text-zinc-500">px</span></template>
       </FormKit>
     </td>
-    <td :class="{'bg-blue-950' : mobileFirst }" class="border-r border-zinc-500">
+    <td :class="{'default-cell': mobileFirst }">
       <FormKit type="number"
                v-model="values.lineMinSize"
                step="0.01"
                :name="name + '[lineMinSize]'"
                number="float"
-               :outer-class="{'mb-4':false}">
-        <template #suffix><span class="-ml-1 pr-3">em</span></template>
+               outer-class="!mb-0"
+               inner-class="!max-w-none"
+               input-class="font-mono !text-sm !py-1">
+        <template #suffix><span class="pr-3 text-xs text-zinc-500">em</span></template>
       </FormKit>
     </td>
-
-    <td :class="{'bg-blue-900' : !mobileFirst }">
+    <td :class="{'default-cell': !mobileFirst }">
       <FormKit type="number"
                v-model="values.fontMaxSize"
                step="0.01"
                :name="name + '[fontMaxSize]'"
                number="float"
-               :outer-class="{'mb-4':false}">
-        <template #suffix><span class="-ml-1 pr-3">px</span></template>
+               outer-class="!mb-0"
+               inner-class="!max-w-none"
+               input-class="font-mono !text-sm !py-1">
+        <template #suffix><span class="pr-3 text-xs text-zinc-500">px</span></template>
       </FormKit>
     </td>
-    <td :class="{'bg-blue-950' : !mobileFirst }">
+    <td :class="{'default-cell': !mobileFirst }">
       <FormKit type="number"
                v-model="values.lineMaxSize"
                step="0.01"
                :name="name + '[lineMaxSize]'"
                number="float"
-               :outer-class="{'mb-4':false}">
-        <template #suffix><span class="-ml-1 pr-3">em</span></template>
+               outer-class="!mb-0"
+               inner-class="!max-w-none"
+               input-class="font-mono !text-sm !py-1">
+        <template #suffix><span class="pr-3 text-xs text-zinc-500">em</span></template>
       </FormKit>
     </td>
     <td class="hidden">
@@ -102,6 +109,6 @@ const resultLineHeight = computed(() => values.value.lineMinSize < 1 ? 1 : fluid
 
 <style scoped>
 td {
-  @apply px-4 pt-4 group-last:pb-4 group-last:border-b border-zinc-500;
+  @apply px-3 py-2 border-t border-zinc-800;
 }
 </style>
