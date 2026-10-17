@@ -37,7 +37,7 @@ const resultSize = computed(() => fluidSize(props.settings.minWidth, props.setti
                outer-class="!mb-0"
                inner-class="!max-w-none"
                input-class="font-mono !text-sm !py-1">
-        <template #suffix><span class="pr-3 text-xs text-zinc-500">px</span></template>
+        <template #suffix><span class="pl-3 text-xs text-zinc-500">px</span></template>
       </FormKit>
     </td>
     <td :class="{'default-cell': !mobileFirst }">
@@ -49,7 +49,7 @@ const resultSize = computed(() => fluidSize(props.settings.minWidth, props.setti
                outer-class="!mb-0"
                inner-class="!max-w-none"
                input-class="font-mono !text-sm !py-1">
-        <template #suffix><span class="pr-3 text-xs text-zinc-500">px</span></template>
+        <template #suffix><span class="pl-3 text-xs text-zinc-500">px</span></template>
       </FormKit>
     </td>
     <td class="hidden">
