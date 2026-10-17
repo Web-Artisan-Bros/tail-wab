@@ -15,7 +15,7 @@
         <SettingLabel :context="context"
                       info="The viewport width where font sizes start growing. Below it they stay at their smallest value."/>
       </template>
-      <template #suffix><span class="pl-2 text-zinc-400">px</span></template>
+      <template #suffix><span class="pl-2.5 text-zinc-400">px</span></template>
     </FormKit>
 
     <FormKit
@@ -29,7 +29,7 @@
         <SettingLabel :context="context"
                       info="The viewport width where font sizes stop growing. Above it they stay at their largest value."/>
       </template>
-      <template #suffix><span class="pl-2 text-zinc-400">px</span></template>
+      <template #suffix><span class="pl-2.5 text-zinc-400">px</span></template>
     </FormKit>
 
     <FormKit
