@@ -81,3 +81,9 @@ layouts/        default layout
 assets/         logos, icons and css/tailwind.css (shared component styles)
 public/         favicons
 ```
+
+---
+
+<p align="center">
+  Made by <a href="https://leicaflorianrobert.dev"><img src="assets/lfr_logo.png" width="20" height="20" alt="" align="center"> Leica Florian Robert</a>
+</p>
