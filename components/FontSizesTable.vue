@@ -22,34 +22,26 @@ const settings = computed(() => spacesSettingsForm.value?.value)
 <template>
   <FormKit type="form" id="fontSizesEntriesForm"
            :actions="false">
-    <div class="overflow-auto">
-      <table class="table-fixed w-full min-w-[1024px]" v-if="settings">
+    <div class="size-table-wrapper">
+      <table class="size-table min-w-[720px]" v-if="settings">
         <thead>
-        <tr class="table-row font-bold border-b text-lg">
-          <th class="text-left">Name</th>
-          <th>Min Font Size
-            <div class="font-normal italic text-blue-400" v-if="settings.mobileFirst === 'true'">
-              Default
-              Tailwind values
-            </div>
+        <tr>
+          <th class="name-cell">Name</th>
+          <th :class="{'default-cell': settings.mobileFirst === 'true' }">
+            Min font size
+            <span class="badge" v-if="settings.mobileFirst === 'true'">Tailwind default</span>
           </th>
-          <th>Min Line Height
-            <div class="font-normal italic text-blue-400" v-if="settings.mobileFirst === 'true'">
-              Default
-              Tailwind values
-            </div>
+          <th :class="{'default-cell': settings.mobileFirst === 'true' }">
+            Min line height
+            <span class="badge" v-if="settings.mobileFirst === 'true'">Tailwind default</span>
           </th>
-          <th>Max Font Size
-            <div class="font-normal italic text-blue-400" v-if="settings.mobileFirst === 'false'">
-              Default
-              Tailwind values
-            </div>
+          <th :class="{'default-cell': settings.mobileFirst === 'false' }">
+            Max font size
+            <span class="badge" v-if="settings.mobileFirst === 'false'">Tailwind default</span>
           </th>
-          <th>Max Line Height
-            <div class="font-normal italic text-blue-400" v-if="settings.mobileFirst === 'false'">
-              Default
-              Tailwind values
-            </div>
+          <th :class="{'default-cell': settings.mobileFirst === 'false' }">
+            Max line height
+            <span class="badge" v-if="settings.mobileFirst === 'false'">Tailwind default</span>
           </th>
         </tr>
         </thead>
@@ -62,7 +54,3 @@ const settings = computed(() => spacesSettingsForm.value?.value)
     </div>
   </FormKit>
 </template>
-
-<style scoped lang="scss">
-
-</style>

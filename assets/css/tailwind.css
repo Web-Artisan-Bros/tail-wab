@@ -20,4 +20,36 @@
   .section-title {
     @apply mb-4 font-title text-2xl text-zinc-50;
   }
+
+  .size-table-wrapper {
+    @apply overflow-x-auto rounded-xl border border-zinc-800 bg-zinc-900;
+  }
+
+  .size-table {
+    @apply w-full table-fixed border-collapse text-left;
+
+    th {
+      @apply px-3 py-3 align-bottom text-xs font-semibold uppercase tracking-wide text-zinc-400;
+    }
+
+    .name-cell {
+      @apply sticky left-0 z-10 w-28 bg-zinc-900 font-mono text-sm text-zinc-100;
+    }
+
+    th.name-cell {
+      @apply font-sans text-xs text-zinc-400;
+    }
+
+    tr:hover .name-cell {
+      @apply bg-[#1e1e21];
+    }
+
+    .default-cell {
+      @apply bg-zinc-800/40;
+    }
+  }
+
+  .badge {
+    @apply mt-1 block w-fit rounded bg-accent-soft/10 px-1.5 py-0.5 text-[10px] font-medium normal-case tracking-normal text-accent-soft;
+  }
 }
