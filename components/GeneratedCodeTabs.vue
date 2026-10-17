@@ -8,39 +8,23 @@ const spaces: any = props.composable
 </script>
 
 <template>
-  <div class="mt-20 py-10">
-    <h2 class="text-5xl text-black dark:text-white mb-10">Generated Code</h2>
-    <div>
-      <Tabs :tabs="['CSS', 'Tailwind']">
-        <template #css>
-          <div class="mb-10">
-            <FormKit type="checkbox"
-                     label="Include Comments"
-                     v-model="spaces.cssIncludeComments.value"
-            ></FormKit>
-          </div>
-
-          <pre class="bg-zinc-100 text-slate-900 -mx-4 -mb-8 p-4 font-mono"><code>{{
-              spaces['cssResult'].value.join('\n')
-            }}</code></pre>
-        </template>
-        <template #tailwind>
-          <div class="mb-10">
-            <FormKit type="checkbox"
-                     label="Include Comments"
-                     v-model="spaces.twIncludeComments.value"
-            ></FormKit>
-          </div>
-
-          <pre class="bg-zinc-100 text-slate-900 -mx-4 -mb-8 p-4 font-mono"><code>{{
-              spaces['twResult'].value.join('\n')
-            }}</code></pre>
-        </template>
-      </Tabs>
-    </div>
+  <div>
+    <h2 class="section-title">Generated code</h2>
+    <Tabs :tabs="['CSS', 'Tailwind']">
+      <template #actions="{ active }">
+        <ToggleSwitch v-if="active === 0"
+                      label="Include comments"
+                      v-model="spaces.cssIncludeComments.value"></ToggleSwitch>
+        <ToggleSwitch v-else
+                      label="Include comments"
+                      v-model="spaces.twIncludeComments.value"></ToggleSwitch>
+      </template>
+      <template #css>
+        <CodeBlock lang="css" :code="spaces['cssResult'].value.join('\n')"></CodeBlock>
+      </template>
+      <template #tailwind>
+        <CodeBlock lang="javascript" :code="spaces['twResult'].value.join('\n')"></CodeBlock>
+      </template>
+    </Tabs>
   </div>
 </template>
-
-<style scoped lang="scss">
-
-</style>

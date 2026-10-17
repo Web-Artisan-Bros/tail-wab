@@ -33,17 +33,3 @@ const links = [
     </nav>
   </header>
 </template>
-
-<style scoped>
-.segmented {
-  @apply flex items-center gap-1 rounded-lg bg-zinc-900 p-1 border border-zinc-800;
-}
-
-.segmented-item {
-  @apply block rounded-md px-3 py-1.5 text-sm font-medium text-zinc-400 transition-colors hover:text-zinc-100;
-
-  &.router-link-exact-active {
-    @apply bg-zinc-800 text-accent-soft;
-  }
-}
-</style>
