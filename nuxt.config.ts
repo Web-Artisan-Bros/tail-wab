@@ -8,8 +8,11 @@ export default defineNuxtConfig({
     // and more...
   },
   formkit: {
-    // Experimental support for auto loading (see note):
-    autoImport: true
+    // The experimental autoImport drops the "form" input during SSR of /spaces
+    autoImport: false
+  },
+  imports: {
+    presets: [{ from: '@formkit/vue', imports: ['useFormKitContextById'] }]
   },
   fonts: {
     families: [
