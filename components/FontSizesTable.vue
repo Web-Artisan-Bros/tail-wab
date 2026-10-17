@@ -28,19 +28,19 @@ const settings = computed(() => spacesSettingsForm.value?.value)
         <tr>
           <th class="name-cell">Name</th>
           <th :class="{'default-cell': settings.mobileFirst === 'true' }">
-            Min font size
+            <span class="legend-dot legend-dot-min"></span>Min font size
             <span class="badge" v-if="settings.mobileFirst === 'true'">Tailwind default</span>
           </th>
           <th :class="{'default-cell': settings.mobileFirst === 'true' }">
-            Min line height
+            <span class="legend-dot legend-dot-min"></span>Min line height
             <span class="badge" v-if="settings.mobileFirst === 'true'">Tailwind default</span>
           </th>
           <th :class="{'default-cell': settings.mobileFirst === 'false' }">
-            Max font size
+            <span class="legend-dot legend-dot-max"></span>Max font size
             <span class="badge" v-if="settings.mobileFirst === 'false'">Tailwind default</span>
           </th>
           <th :class="{'default-cell': settings.mobileFirst === 'false' }">
-            Max line height
+            <span class="legend-dot legend-dot-max"></span>Max line height
             <span class="badge" v-if="settings.mobileFirst === 'false'">Tailwind default</span>
           </th>
         </tr>

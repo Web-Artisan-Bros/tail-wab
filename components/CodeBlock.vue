@@ -3,7 +3,8 @@ import { HIGHLIGHT_THEME } from '~/composables/highlighter'
 
 const props = defineProps<{
   code: string
-  lang: 'css' | 'javascript'
+  // scss for the Tailwind v4 @theme block: the css grammar reads its declarations as selectors
+  lang: 'css' | 'scss' | 'javascript'
 }>()
 
 const html = ref('')
@@ -55,7 +56,7 @@ onBeforeUnmount(() => clearTimeout(resetTimer))
 
 <style scoped>
 .code-block {
-  @apply relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950;
+  @apply relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900;
 
   :deep(pre) {
     @apply overflow-x-auto p-4 font-mono text-sm leading-relaxed;
@@ -64,6 +65,6 @@ onBeforeUnmount(() => clearTimeout(resetTimer))
 }
 
 .copy-button {
-  @apply absolute right-3 top-3 rounded-md border border-zinc-700 bg-zinc-900 px-2.5 py-1 text-xs font-medium text-zinc-300 transition-colors hover:border-accent hover:text-accent-soft;
+  @apply absolute right-3 top-3 rounded-md border border-zinc-700 bg-zinc-900 px-2.5 py-1 text-xs font-medium text-zinc-300 transition-colors hover:border-accent hover:text-accent;
 }
 </style>

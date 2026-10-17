@@ -49,11 +49,11 @@ const settings = computed(() => spacesSettingsForm.value?.value)
         <tr>
           <th class="name-cell">Name</th>
           <th :class="{'default-cell': settings.mobileFirst === 'true' }">
-            Min size
+            <span class="legend-dot legend-dot-min"></span>Min size
             <span class="badge" v-if="settings.mobileFirst === 'true'">Tailwind default</span>
           </th>
           <th :class="{'default-cell': settings.mobileFirst === 'false' }">
-            Max size
+            <span class="legend-dot legend-dot-max"></span>Max size
             <span class="badge" v-if="settings.mobileFirst === 'false'">Tailwind default</span>
           </th>
         </tr>

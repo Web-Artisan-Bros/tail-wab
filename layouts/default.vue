@@ -27,7 +27,7 @@ useHead({
     class: 'dark'
   },
   bodyAttrs: {
-    class: 'bg-zinc-950 text-zinc-100 font-sans antialiased'
+    class: 'text-zinc-100 font-sans antialiased'
   }
 })
 

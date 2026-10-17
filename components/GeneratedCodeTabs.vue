@@ -36,7 +36,7 @@ const versions: TailwindVersion[] = ['v4', 'v3']
         <CodeBlock lang="css" :code="spaces['cssResult'].value.join('\n')"></CodeBlock>
       </template>
       <template #tailwind>
-        <CodeBlock :lang="spaces.tailwindVersion.value === 'v4' ? 'css' : 'javascript'"
+        <CodeBlock :lang="spaces.tailwindVersion.value === 'v4' ? 'scss' : 'javascript'"
                    :code="spaces['twResult'].value.join('\n')"></CodeBlock>
       </template>
     </Tabs>

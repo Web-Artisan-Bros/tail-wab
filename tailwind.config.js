@@ -110,10 +110,9 @@ export default {
     },
     extend: {
       colors: {
-        accent: {
-          DEFAULT: colors.amber[300],
-          soft: colors.yellow[200]
-        }
+        // Brand colours, as in the og-image: yellow for the max values and the accents, sky for the min values
+        accent: colors.amber[300],
+        secondary: colors.sky[400]
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],

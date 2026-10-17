@@ -10,7 +10,7 @@ const links = [
     <nav class="container mx-auto px-basic h-16 flex items-center justify-between gap-4">
       <nuxt-link to="/" class="flex items-center gap-2 shrink-0" aria-label="Go to homepage">
         <img src="/tailwab-logo.svg" alt="" class="h-8 w-8">
-        <span class="font-title text-xl text-zinc-100 hidden sm:inline">TailWab</span>
+        <span class="brand-name text-xl hidden sm:inline">Tail<span class="text-accent">Wab</span></span>
       </nuxt-link>
 
       <div class="flex items-center gap-3">

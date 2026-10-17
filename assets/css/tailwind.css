@@ -6,11 +6,19 @@
   html {
     color-scheme: dark;
   }
+
+  /* Same background as the og-image: a sky glow top left and a yellow one bottom right */
+  body {
+    background: radial-gradient(55vw 65vh at 8% 12%, theme('colors.secondary / 10%'), transparent 70%),
+    radial-gradient(60vw 75vh at 95% 95%, theme('colors.accent / 9%'), transparent 70%),
+    theme('colors.zinc.950');
+    background-attachment: fixed;
+  }
 }
 
 @layer components {
   .card {
-    @apply rounded-xl border border-zinc-800 bg-zinc-900/60 p-6;
+    @apply rounded-2xl border border-zinc-800 bg-zinc-900/75 p-6;
   }
 
   .card-title {
@@ -47,7 +55,7 @@
   }
 
   .info-tooltip-button {
-    @apply inline-flex rounded-full text-zinc-500 transition-colors hover:text-accent-soft focus-visible:text-accent-soft focus-visible:outline-none;
+    @apply inline-flex rounded-full text-zinc-500 transition-colors hover:text-accent focus-visible:text-accent focus-visible:outline-none;
   }
 
   .info-tooltip {
@@ -63,12 +71,12 @@
 
     &.is-active,
     &.router-link-exact-active {
-      @apply bg-zinc-800 text-accent-soft;
+      @apply bg-zinc-800 text-accent;
     }
   }
 
   .size-table-wrapper {
-    @apply overflow-x-auto rounded-xl border border-zinc-800 bg-zinc-900;
+    @apply overflow-x-auto rounded-2xl border border-zinc-800 bg-zinc-900;
   }
 
   .size-table {
@@ -95,7 +103,26 @@
     }
   }
 
+  .brand-name {
+    @apply font-title font-bold leading-none text-zinc-100;
+    /* Josefin Sans sits high in its line box */
+    padding-top: 0.14em;
+  }
+
+  /* Colour key of the min (sky) and max (yellow) columns, as in the og-image legend */
+  .legend-dot {
+    @apply mr-1.5 inline-block h-2.5 w-2.5 rounded-[3px] align-[-1px];
+  }
+
+  .legend-dot-min {
+    @apply bg-secondary;
+  }
+
+  .legend-dot-max {
+    @apply bg-accent;
+  }
+
   .badge {
-    @apply mt-1 block w-fit rounded bg-accent-soft/10 px-1.5 py-0.5 text-[10px] font-medium normal-case tracking-normal text-accent-soft;
+    @apply mt-1 block w-fit rounded bg-accent/10 px-1.5 py-0.5 text-[10px] font-medium normal-case tracking-normal text-accent;
   }
 }
