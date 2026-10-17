@@ -13,11 +13,16 @@ let resetTimer: ReturnType<typeof setTimeout> | undefined
 
 async function highlight () {
   const code = props.code
-  const highlighter = await useHighlighter()
 
-  // A newer code value may have arrived while the highlighter was loading
-  if (code === props.code) {
-    html.value = highlighter.codeToHtml(code, { lang: props.lang, theme: HIGHLIGHT_THEME })
+  try {
+    const highlighter = await useHighlighter()
+
+    // A newer code value may have arrived while the highlighter was loading
+    if (code === props.code) {
+      html.value = highlighter.codeToHtml(code, { lang: props.lang, theme: HIGHLIGHT_THEME })
+    }
+  } catch {
+    // Shiki could not be loaded: the plain code stays visible
   }
 }
 

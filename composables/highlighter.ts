@@ -13,7 +13,11 @@ export function useHighlighter (): Promise<HighlighterCore> {
     themes: [import('shiki/themes/github-dark-default.mjs')],
     langs: [import('shiki/langs/css.mjs'), import('shiki/langs/javascript.mjs')],
     loadWasm: import('shiki/wasm')
-  }))
+  })).catch((error) => {
+    // Forget the failed attempt so that the next call can try again (browsers may still cache a failed import)
+    highlighter = undefined
+    throw error
+  })
 
   return highlighter
 }
