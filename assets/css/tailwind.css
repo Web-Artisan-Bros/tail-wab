@@ -103,6 +103,23 @@
     }
   }
 
+  .explainer {
+    @apply text-sm leading-relaxed text-zinc-400;
+
+    strong {
+      @apply font-semibold text-zinc-200;
+    }
+
+    code {
+      @apply font-mono text-zinc-200;
+    }
+  }
+
+  /* The clamp() line, styled like the code chip of the og-image */
+  .explainer-code {
+    @apply mb-1 mt-3 overflow-x-auto whitespace-nowrap rounded-lg border border-zinc-800 bg-zinc-950/60 px-3 py-2 font-mono text-xs text-zinc-400;
+  }
+
   .brand-name {
     @apply font-title font-bold leading-none text-zinc-100;
     /* Josefin Sans sits high in its line box */

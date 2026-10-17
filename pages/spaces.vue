@@ -16,7 +16,9 @@ useHead({
 <template>
   <section class="container mx-auto px-basic py-12">
     <PageIntro title="Fluid Spaces"
-               description="Fluid values for Tailwind's spacing scale, from your smallest to your largest viewport."/>
+               description="Fluid values for Tailwind's spacing scale, from your smallest to your largest viewport.">
+      <FluidExplainer kind="spaces"></FluidExplainer>
+    </PageIntro>
 
     <div class="mt-10 grid gap-8 lg:grid-cols-[320px_1fr] items-start">
       <aside class="card settings-card lg:sticky lg:top-24">
