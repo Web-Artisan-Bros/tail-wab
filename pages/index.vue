@@ -28,14 +28,15 @@ useHead({
         </FormKit>
       </aside>
 
-      <div class="min-w-0 space-y-12">
-        <div>
-          <h2 class="section-title">Font sizes</h2>
+      <!-- v-show inside Tabs keeps the table mounted: the generated code reads its form -->
+      <Tabs class="min-w-0" :tabs="['Font sizes', 'Generated code']">
+        <template #font_sizes>
           <FontSizesTable></FontSizesTable>
-        </div>
-
-        <GeneratedCodeTabs :composable="fontSizes"></GeneratedCodeTabs>
-      </div>
+        </template>
+        <template #generated_code>
+          <GeneratedCodeTabs :composable="fontSizes"></GeneratedCodeTabs>
+        </template>
+      </Tabs>
     </div>
   </section>
 </template>

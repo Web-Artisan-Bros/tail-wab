@@ -11,7 +11,6 @@ const versions: TailwindVersion[] = ['v4', 'v3']
 
 <template>
   <div>
-    <h2 class="section-title">Generated code</h2>
     <Tabs :tabs="['CSS', 'Tailwind']">
       <template #actions="{ active }">
         <ToggleSwitch v-if="active === 0"

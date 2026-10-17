@@ -28,14 +28,15 @@ useHead({
         </FormKit>
       </aside>
 
-      <div class="min-w-0 space-y-12">
-        <div>
-          <h2 class="section-title">Spaces</h2>
+      <!-- v-show inside Tabs keeps the table mounted: the generated code reads its form -->
+      <Tabs class="min-w-0" :tabs="['Spaces', 'Generated code']">
+        <template #spaces>
           <SpacesTable></SpacesTable>
-        </div>
-
-        <GeneratedCodeTabs :composable="spaces"></GeneratedCodeTabs>
-      </div>
+        </template>
+        <template #generated_code>
+          <GeneratedCodeTabs :composable="spaces"></GeneratedCodeTabs>
+        </template>
+      </Tabs>
     </div>
   </section>
 </template>

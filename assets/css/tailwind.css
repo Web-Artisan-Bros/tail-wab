@@ -54,10 +54,6 @@
     @apply absolute inset-x-0 bottom-full z-10 mb-1 rounded-lg border border-zinc-700 bg-zinc-800 px-3 py-2 text-xs font-normal leading-relaxed text-zinc-200 shadow-lg;
   }
 
-  .section-title {
-    @apply mb-4 font-title text-2xl text-zinc-50;
-  }
-
   .segmented {
     @apply flex items-center gap-1 rounded-lg border border-zinc-800 bg-zinc-900 p-1;
   }
