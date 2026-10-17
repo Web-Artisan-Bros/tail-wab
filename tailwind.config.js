@@ -1,4 +1,5 @@
 import colors from 'tailwindcss/colors'
+import plugin from 'tailwindcss/plugin'
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -124,6 +125,12 @@ export default {
       }
     }
   },
-  plugins: []
+  plugins: [
+    // formkit.theme.ts is generated with Tailwind v4 class names: define the ones Tailwind 3 lacks
+    plugin(({ addUtilities }) => addUtilities({
+      '.outline-hidden': { outline: '2px solid transparent', 'outline-offset': '2px' },
+      '.shadow-xs': { 'box-shadow': '0 1px 2px 0 rgb(0 0 0 / 0.05)' }
+    }))
+  ]
 }
 
