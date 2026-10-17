@@ -3,6 +3,7 @@ import { fontSizesCss, fontSizesTailwind, type FontSizeRows } from '~/libs/fontS
 export function useFontSizes () {
   const entriesForm = useFormKitContextById('fontSizesEntriesForm')
   const twIncludeComments = ref(false)
+  const tailwindVersion = useTailwindVersion()
   const cssIncludeComments = ref(false)
   
   const groupedByNameRes = computed(() => {
@@ -38,9 +39,10 @@ export function useFontSizes () {
 
   const cssResult = computed(() => fontSizesCss(rows.value, cssIncludeComments.value))
 
-  const twResult = computed(() => fontSizesTailwind(rows.value, 'v3', twIncludeComments.value))
+  const twResult = computed(() => fontSizesTailwind(rows.value, tailwindVersion.value, twIncludeComments.value))
 
   return {
+    tailwindVersion,
     twIncludeComments,
     cssIncludeComments,
     groupedByNameRes,

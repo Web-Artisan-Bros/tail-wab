@@ -7,6 +7,7 @@ export function useSpaces () {
   
   const cssIncludeComments = ref(false)
   const twIncludeComments = ref(false)
+  const tailwindVersion = useTailwindVersion()
   
   const groupedByNameRes = computed(() => {
     if (!formData.value) return ''
@@ -36,9 +37,10 @@ export function useSpaces () {
 
   const cssResult = computed<string[]>(() => spacesCss(rows.value, cssIncludeComments.value))
 
-  const twResult = computed<string[]>(() => spacesTailwind(rows.value, 'v3', twIncludeComments.value))
+  const twResult = computed<string[]>(() => spacesTailwind(rows.value, tailwindVersion.value, twIncludeComments.value))
 
   return {
+    tailwindVersion,
     cssIncludeComments,
     twIncludeComments,
     groupedByNameRes,
