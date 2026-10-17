@@ -42,7 +42,7 @@ onBeforeUnmount(() => document.removeEventListener('pointerdown', onDocumentPoin
             @pointerleave="hovering = false"
             @blur="pinned = false"
             @keydown="onKeydown">
-      <svg viewBox="0 0 16 16" fill="none" class="h-3.5 w-3.5" aria-hidden="true">
+      <svg viewBox="0 0 16 16" fill="none" class="block h-3.5 w-3.5" aria-hidden="true">
         <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
         <path d="M8 7v4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         <circle cx="8" cy="4.75" r="0.9" fill="currentColor"/>

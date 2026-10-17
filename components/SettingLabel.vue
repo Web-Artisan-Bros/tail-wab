@@ -9,7 +9,8 @@ defineProps<{
 </script>
 
 <template>
-  <span :class="[context.classes.label, 'items-center gap-1']">
+  <!-- !inline-flex: the theme gives select labels "block", so gap and centering would not apply there -->
+  <span :class="[context.classes.label, '!inline-flex items-center gap-1']">
     <label :for="context.id">{{ context.label }}</label>
     <InfoTooltip :text="info"></InfoTooltip>
   </span>
