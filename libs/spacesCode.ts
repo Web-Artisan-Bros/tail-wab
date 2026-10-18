@@ -10,6 +10,11 @@ export type SpaceRow = {
 /** Rows of the spaces table, keyed by Tailwind spacing key (`0`, `0.5`, `1`, …) */
 export type SpaceRows = Record<string, SpaceRow>
 
+/** Key as it appears in a CSS variable name: a dot is not valid there, so `1.5` becomes `1_5` (as Tailwind v4 expects) */
+function variableKey (key: string): string {
+  return key.replace(/\./g, '_')
+}
+
 function sortedKeys (rows: SpaceRows): string[] {
   return Object.keys(rows).sort((a, b) => +a > +b ? 1 : -1)
 }
@@ -25,7 +30,7 @@ export function spacesCss (rows: SpaceRows, comments: boolean): string[] {
   const toReturn = sortedKeys(rows).reduce((acc, key) => {
     const values = rows[key]
 
-    acc.push(`   --wabtu-${key}: ${values.resultSize};`)
+    acc.push(`   --wabtu-${variableKey(key)}: ${values.resultSize};`)
 
     if (comments) {
       const { minSize, maxSize } = ranges(values)
@@ -80,7 +85,7 @@ function spacesTheme (rows: SpaceRows, comments: boolean): string[] {
       acc.push(`  /* ${key}: ${minSize}px → ${maxSize}px */`)
     }
 
-    acc.push(`  --spacing-${key.replace('.', '_')}: ${values.resultSize};`)
+    acc.push(`  --spacing-${variableKey(key)}: ${values.resultSize};`)
     return acc
   }, ['@theme {'] as string[])
 

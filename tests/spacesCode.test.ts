@@ -24,11 +24,19 @@ describe('spacesCss', () => {
 
     expect(spacesCss(unsorted, false)).toEqual([
       ':root {',
-      '   --wabtu-0.5: half;',
+      '   --wabtu-0_5: half;',
       '   --wabtu-2: two;',
       '   --wabtu-10: ten;',
       '}'
     ])
+  })
+
+  test('never writes a dot in a CSS variable name', () => {
+    expect(spacesCss(rows, false).filter(line => /--wabtu-[^:]*\./.test(line))).toEqual([])
+  })
+
+  test('turns the dot of a decimal key into an underscore, like the v4 output', () => {
+    expect(spacesCss(rows, false)).toContain('   --wabtu-1_5: clamp(0.375rem, 0.3359rem + 0.1957vi, 0.4875rem);')
   })
 })
 

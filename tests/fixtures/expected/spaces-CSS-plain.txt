@@ -1,12 +1,12 @@
 :root {
    --wabtu-0: 0rem;
-   --wabtu-0.5: clamp(0.125rem, 0.1120rem + 0.0652vi, 0.1625rem);
+   --wabtu-0_5: clamp(0.125rem, 0.1120rem + 0.0652vi, 0.1625rem);
    --wabtu-1: clamp(0.25rem, 0.2239rem + 0.1304vi, 0.325rem);
-   --wabtu-1.5: clamp(0.375rem, 0.3359rem + 0.1957vi, 0.4875rem);
+   --wabtu-1_5: clamp(0.375rem, 0.3359rem + 0.1957vi, 0.4875rem);
    --wabtu-2: clamp(0.5rem, 0.4478rem + 0.2609vi, 0.65rem);
-   --wabtu-2.5: clamp(0.625rem, 0.5598rem + 0.3261vi, 0.8125rem);
+   --wabtu-2_5: clamp(0.625rem, 0.5598rem + 0.3261vi, 0.8125rem);
    --wabtu-3: clamp(0.75rem, 0.6717rem + 0.3913vi, 0.975rem);
-   --wabtu-3.5: clamp(0.875rem, 0.7837rem + 0.4565vi, 1.1375rem);
+   --wabtu-3_5: clamp(0.875rem, 0.7837rem + 0.4565vi, 1.1375rem);
    --wabtu-4: clamp(1rem, 0.8957rem + 0.5217vi, 1.3rem);
    --wabtu-5: clamp(1.25rem, 1.1196rem + 0.6522vi, 1.625rem);
    --wabtu-6: clamp(1.5rem, 1.3435rem + 0.7826vi, 1.95rem);

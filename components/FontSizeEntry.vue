@@ -2,6 +2,7 @@
 import { fluidSize } from '@wab-use/libs'
 import { limitDecimals } from '~/libs/limitDecimals'
 import { unitConvert } from '~/libs/unitConvert'
+import { fluidLineHeight } from '~/libs/lineHeight'
 
 const props = defineProps<{
   entry: [name: string, fontSize: number, lineHeight: number],
@@ -36,7 +37,7 @@ watch(() => props.settings, (val) => {
 }, { immediate: true, deep: true })
 
 const resultFontSize = computed(() => fluidSize(props.settings.minWidth, props.settings.maxWidth, values.value.fontMinSize, values.value.fontMaxSize).replace(';', ''))
-const resultLineHeight = computed(() => values.value.lineMinSize < 1 ? 1 : fluidSize(props.settings.minWidth, props.settings.maxWidth, values.value.lineMinSize, values.value.lineMaxSize, false, 'em').replace(';', ''))
+const resultLineHeight = computed(() => fluidLineHeight(props.settings, values.value))
 </script>
 
 <template>
